@@ -29,7 +29,7 @@ function City(nome, x, y, owner, uomini) {
 	this.hover = function () {
 		var dH = dist(mouseX, mouseY, this.x, this.y);
 		if (dH < 15) {
-			mouseHover.push(this.nome);
+			cityHover.push(this.nome);
 		}
 	}
 
@@ -51,7 +51,6 @@ function City(nome, x, y, owner, uomini) {
 				for (var ii = 0; ii < statLegione.length; ii++) {
 
 					if (statLegione[ii][4] == "Player" && cittaDestro.nome == statLegione[ii][0] && statLegione[ii][5] == false) {
-						console.log(statLegione[ii]);
 						document.getElementById("NAV2").innerHTML = "Crea Esercito";
 						document.getElementById("NAV2").onclick = function creaLegione() {
 
@@ -99,23 +98,8 @@ function City(nome, x, y, owner, uomini) {
 				document.getElementById("NAV2").onclick = "";
 				document.getElementById("NAV3").innerHTML = "Invia dei Mercanti";
 				document.getElementById("NAV3").onclick = "";
-				document.getElementById("NAV4").innerHTML = "Attacca Città";
-				document.getElementById("NAV4").onclick =  function attaccaCitta() {
-					var disponibili = 0;
-
-					for (var ii = 0; ii < legion.length; ii++) {
-						if (legion[ii].owner == "Player" && collidesLegion(cittaDestro, legion[ii])) {
-							console.log("OK");
-							disponibili++;
-						}
-					}
-
-					if (disponibili == 0) {
-						closeNav();
-						mscAlert("NESSUN ESERCITO DISPONIBILE");
-					}
-				};
-
+				document.getElementById("NAV4").innerHTML = "";
+				document.getElementById("NAV4").onclick = "";
 			}
 
 			document.getElementById("mySidenav").style.width = "20%";

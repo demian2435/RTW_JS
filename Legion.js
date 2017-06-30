@@ -11,6 +11,7 @@ function Legion(citta, nome, x, y, owner, soldati) {
 	this.y = y;
 	this.owner = owner;
 	this.soldati = soldati;
+	this.click = false;
 
 	var canvas = document.getElementById("defaultCanvas0");
 	var context = canvas.getContext("2d");
@@ -24,10 +25,17 @@ function Legion(citta, nome, x, y, owner, soldati) {
 
 	this.display = function (proprietario) {
 
-		if (proprietario == "Player")
-			context.drawImage(imgPopolare, this.x - 20, this.y - 45, 40, 95);
+		if (proprietario == "Player") {
+			if (this.click == true) {
+				fill(255, 255, 254, 80);
+				noStroke();
+				ellipse(this.x, this.y, 150);
+			};
+
+			context.drawImage(imgPopolare, this.x - 20, this.y - 50, 40, 95);
+		}
 		if (proprietario == "Enemy")
-			context.drawImage(imgNordIta, this.x - 20, this.y - 45, 40, 95);
+			context.drawImage(imgNordIta, this.x - 20, this.y - 50, 40, 95);
 	}
 
 	this.hover = function () {
@@ -37,7 +45,13 @@ function Legion(citta, nome, x, y, owner, soldati) {
 	}
 
 	this.tastoSinistro = function () {
-
+		if (collides(this, mouseX, mouseX)) {
+			unitaSelezionata = true;
+			this.click = true;
+		} else {
+			this.click = false;
+			unitaSelezionata = false;
+		}
 	}
 
 	this.tastoDestro = function (legioneDestro) {
@@ -91,22 +105,7 @@ function Legion(citta, nome, x, y, owner, soldati) {
 				document.getElementById("NAV2").onclick = "";
 				document.getElementById("NAV3").innerHTML = "Corrompi Esercito";
 				document.getElementById("NAV3").onclick = "";
-				document.getElementById("NAV4").innerHTML = "Attacca Esercito";
-				document.getElementById("NAV4").onclick = function attaccaEsercito() {
-					var disponibili = 0;
-
-					for (var ii = 0; ii < legion.length; ii++) {
-						if (legion[ii].owner == "Player" && collidesLegion(legioneDestro, legion[ii])) {
-							console.log("OK");
-							disponibili++;
-						}
-					}
-
-					if (disponibili == 0) {
-						closeNav();
-						mscAlert("NESSUN ESERCITO DISPONIBILE");
-					}
-				};
+				document.getElementById("NAV4").innerHTML = "";
 				document.getElementById("mySidenav").style.width = "20%";
 			}
 		}

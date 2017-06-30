@@ -14,6 +14,8 @@ var CRESCITA = 0.015;
 
 var MALCONTENTO = 0.002;
 
+var unitaSelezionata = false;
+
 
 
 function setup() {
@@ -62,18 +64,33 @@ function mousePressed() {
 		//legion[0].x = mouseX;
 		//legion[0].y = mouseY;
 
+		for (var i = 0; i < legion.length; i++) {
+			legion[i].tastoSinistro(legion[i]);
+		}
+
 		for (var i = 0; i < city.length; i++) {
-			city[i].tastoSinistro();
+			city[i].tastoSinistro(city[i]);
 		}
 	}
 
 	if (mouseButton == RIGHT) {
+
+		if (!isOnDiv)
+			closeNav();
+
+		if (!isOnDiv2)
+			closeNav2();
+
+		if (!isOnStat)
+			closeStat();
+
 		for (var i = 0; i < city.length; i++) {
 			city[i].tastoDestro(city[i]);
 		}
 		for (var i = 0; i < legion.length; i++) {
 			legion[i].tastoDestro(legion[i]);
 		}
+
 	}
 
 	if (mouseButton == CENTER) {
@@ -82,7 +99,7 @@ function mousePressed() {
 }
 
 function draw() {
-	mouseHover = [];
+	cityHover = [];
 	legionHover = [];
 	sfondoMappa();
 
@@ -96,8 +113,25 @@ function draw() {
 		legion[i].hover();
 	};
 
-	if (mouseHover.length != 0 || legionHover.length != 0) {
+	if (cityHover.length != 0) {
 		document.getElementsByTagName("body")[0].style.cursor = "pointer";
+
+		var c = document.getElementById("defaultCanvas0");
+		var ctx = c.getContext("2d");
+
+		ctx.font = "25px Georgia";
+		ctx.fillStyle = "white";
+		ctx.fillText(cityHover, mouseX + 20, mouseY + 16);
+	} else if (legionHover.length != 0) {
+		document.getElementsByTagName("body")[0].style.cursor = "pointer";
+
+		var c = document.getElementById("defaultCanvas0");
+		var ctx = c.getContext("2d");
+
+		ctx.font = "25px Georgia";
+		ctx.fillStyle = "white";
+		ctx.fillText(legionHover, mouseX + 20, mouseY + 16);
+
 	} else {
 		document.getElementsByTagName("body")[0].style.cursor = "auto";
 	};
@@ -238,7 +272,25 @@ function closeStat() {
 
 function EVENTI(A) {
 	//SPAWN LEGIONE VELATHRI
-	if(A == 750){ 
-	legion.push(new Legion(statLegione[1][0], statLegione[1][1], statLegione[1][2], statLegione[1][3], statLegione[1][4], statLegione[1][6]));
+	if (A == 750) {
+		legion.push(new Legion(statLegione[1][0], statLegione[1][1], statLegione[1][2], statLegione[1][3], statLegione[1][4], statLegione[1][6]));
 	}
 }
+
+function attacca() {
+	var legioniDisponibili = [];
+
+	for (var i = 0; i < legion.length; ii++) {
+		if (legion[i].owner == "Player" && collidesLegion(legioneDestro, legion[i])) {
+			legioniDisponibili.push(legion[i]);
+			console.log(legioniDisponibili);
+		}
+	}
+
+	if (legioniDisponibili.length == 0) {
+		mscAlert("NESSUN ESERCITO DISPONIBILE");
+	} else {
+
+
+	}
+};
