@@ -1,0 +1,235 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+canvas {
+	top:0;
+	position:absolute;
+}
+
+/*
+html {
+    overflow-y: hidden;
+	overflow-x: hidden
+}
+*/
+
+.navInfo {
+    list-style-type: none;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    background-image: url("img/tab1.jpg");
+}
+
+.INFO {
+    float: right;
+    width: 150px;
+}
+
+.INFO2 {
+    display: block;
+    font-size: 30px;
+    color: #FFF;
+    text-shadow: 3px 1px 5px #000;
+    text-align: center;
+    padding: 30px 10px;
+    text-decoration: none;
+    user-select: none;
+}
+
+.navStat {
+    background-color: #AF0000;
+    position: fixed;
+    left: 30%;
+    top: 10%;
+    z-index: 0;
+    background-image: url("img/nav_bianco.jpg");
+}
+
+.button {
+    float: right;
+    display: block;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-shadow: 3px 1px 5px #000;
+    text-align: center;
+    padding: 30px 20px;
+    text-decoration: none;
+    user-select: none;
+    border: none;
+    border-radius: 4px;
+    background-color: #AF0000;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button:hover {
+    background-color: #4CAF50;
+}
+
+.LOGO {
+    height: 176px;
+    width: 176px;
+    position: fixed;
+    z-index: 1;
+    bottom: 10;
+    left: 30;
+    background-image: url("img/logo2.png");
+    zoom: 0.90;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.LOGO:hover{
+    background-image: url("img/logo3.png");
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    /* background-image: url("img/barraRoma.jpg");*/
+}
+
+.sidenav2 {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left:20%;
+    background-color: #d3d3d3;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.NAV1 {
+    border-style: outset;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 50px;
+    color: #FFFFFF;
+    text-shadow: 3px 1px 5px #000;
+    display: block;
+    transition: 0.1s;
+    user-select: none;
+    background-image: url("img/nav_bianco.jpg");
+}
+
+.NAV1b {
+    border-style: outset;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 50px;
+    color: #FFFFFF;
+    text-shadow: 3px 1px 5px #000;
+    display: block;
+    transition: 0.1s;
+    user-select: none;
+    background-image: url("img/nav_bianco.jpg");
+}
+
+.NAV2 {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 30px;
+    color: #FFFFFF;
+    text-shadow: 3px 1px 5px #000;
+    display: block;
+    transition: 0.1s;
+    user-select: none;
+}
+
+.NAV2b {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 30px;
+    color: #000;
+    text-shadow: 3px 1px 5px #000;
+    display: block;
+    transition: 0.1s;
+    user-select: none;
+}
+
+.NAV2:hover, .offcanvas a:focus{
+    color: #f9d800;
+}
+
+.NAV2b:hover, .offcanvas a:focus{
+    color: #f9d800;
+}
+
+.NAV1:hover, .offcanvas a:focus{
+    color: #FFFFFF;
+    cursor: default;
+}
+
+.sidenav2 .closebtn2 {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 40px;
+    margin-left: 50px;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 40px;
+    margin-left: 50px;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.3s;
+    user-select: none;
+}
+
+
+table  {
+	position: relative;
+    border-collapse:collapse;
+	text-align: center;
+	top: 100%;
+    user-select: none;
+}
+
+td {
+    border:5px solid #000;
+    padding:28px;
+	font: 30px Arial;
+    user-select: none;
+}
+
+th { 
+    border:5px solid #000;
+    padding:28px;
+	font: bold 30px Arial;
+    user-select: none;
+}

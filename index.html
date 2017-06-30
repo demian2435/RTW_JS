@@ -1,0 +1,87 @@
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title id="PAGINA">MAPPA</title>
+	<script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+	<script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+	<script language="javascript" type="text/javascript" src="libraries/p5.sound.js"></script>
+	<script language="javascript" type="text/javascript" src="libraries/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="stile.css">
+	<link rel="stylesheet" href="msc-style.css">
+	<script src="msc-script.js"></script>
+	<script language="javascript" type="text/javascript" src="Start.js"></script>
+	<script language="javascript" type="text/javascript" src="City.js"></script>
+	<script language="javascript" type="text/javascript" src="Legion.js"></script>
+</head>
+
+<body>
+
+<table id="navStat" class="navStat">
+    <caption>
+        <p class="NAV2">STATISTICHE IMPERO</p>
+    </caption>
+    <thead>
+        <tr><th></th><th>Uomini</th><th>Cibo</th><th>Denaro</th></tr>
+    </thead>
+    <tfoot>
+        <tr><td>PREVISIONE</td><td id="preUomini">0000</td><td id="preCibo">0000</td><td id="preDenaro">0000</td></tr>
+    </tfoot>
+    <tbody>
+        <tr><td>Bonus Città</td><td id="bonusUomini">0000</td><td id="bonusCibo">0000</td><td id="bonusDenaro">0000</td></tr>
+        <tr><td>Costi Città</td><td id="CCUomini">0000</td><td id="CCCibo">0000</td><td id="CCDenaro">0000</td></tr>
+        <tr><td>Costi Esercito</td><td id="CEUomini">0000</td><td id="CECibo">0000</td><td id="CEDenaro">0000</td></tr>
+    </tbody>
+</table>
+
+
+
+	<div id="navInfo" class="navInfo">
+		<button type="button" class="button" href="javascript:void(0)" class="TURNO" onclick="passaTurno()" id="turno">PASSA TURNO</button>
+
+		<li class="INFO"><a class="INFO2" id="anno">000000</a></li>
+		<li class="INFO"><a class="INFO2">ANNO</a></li>
+
+		<li class="INFO"><a class="INFO2" id="denaro">000000</a></li>
+		<li class="INFO"><a class="INFO2">DENARO</a></li>
+
+		<li class="INFO"><a class="INFO2" id="cibo">000000</a></li>
+		<li class="INFO"><a class="INFO2">CIBO</a></li>
+
+		<li class="INFO"><a class="INFO2" id="uomini">000000</a></li>
+		<li class="INFO"><a class="INFO2">UOMINI</a></li>
+	</div>
+
+	<div class="LOGO" href="javascript:void(0)" onclick="openStat()"></div>
+
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<p id="NAV1" class="NAV1">NOME</p>
+		<a id="NAV2" class="NAV2" href="javascript:void(0)" onclick="">X</a>
+		<a id="NAV3" class="NAV2" href="javascript:void(0)" onclick="">X</a>
+		<a id="NAV4" class="NAV2" href="javascript:void(0)" onclick="">X</a>
+	</div>
+	<div id="mySidenav2" class="sidenav2">
+		<a href="javascript:void(0)" class="closebtn2" onclick="closeNav2()">&times;</a>
+		<P id="NAV1b" class="NAV1b">NOME</p>
+		<a id="NAV2b" class="NAV2b" href="javascript:void(0)" onclick="">X</a>
+		<a id="NAV3b" class="NAV2b" href="javascript:void(0)" onclick="">X</a>
+		<a id="NAV4b" class="NAV2b" href="javascript:void(0)" onclick="">X</a>
+	</div>
+</body>
+
+<script>
+	var isOnDiv = false;
+	var isOnDiv2 = false;
+	var isOnStat = false;
+	$("#mySidenav").mouseenter(function () { isOnDiv = true; });
+	$("#mySidenav2").mouseenter(function () { isOnDiv = true; isOnDiv2 = true; });
+	$("#mySidenav").mouseleave(function () { isOnDiv = false; });
+	$("#mySidenav2").mouseleave(function () { isOnDiv = false; isOnDiv2 = false; });
+
+	$("#navStat").mouseenter(function () { isOnStat = true; });
+	$("#navStat").mouseleave(function () { isOnStat = false; });
+
+</script>
+
+</html>
