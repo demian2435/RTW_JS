@@ -1,49 +1,63 @@
 var elencoCity = [
-	["Roma", 917, 926, "Player", 5000],
-	["Neapolis", 953, 960, "Enemy", 2000],
-	["Brundisium", 1086, 992, "Enemy", 1000],
-	["Cosentia", 1021, 1058, "Enemy", 1250],
-	["Arminium", 941, 816, "Enemy", 2000],
-	["Velathri", 867, 842, "Enemy", 1500]
+	["Roma", 917, 926, "Player", 5000, 3000],
+	["Neapolis", 953, 960, "Enemy", 2000, 2000],
+	["Brundisium", 1086, 992, "Enemy", 1000, 1500],
+	["Cosentia", 1021, 1058, "Enemy", 1250, 1500],
+	["Arminium", 941, 816, "Enemy", 2000, 2000],
+	["Velathri", 867, 842, "Enemy", 1500, 3000]
 ];
 
-function City(nome, x, y, owner, uomini) {
+function City(nome, x, y, owner, uomini, soldati) {
 
 	this.nome = nome;
 	this.x = x;
 	this.y = y;
 	this.owner = owner;
 	this.uomini = uomini;
+	this.soldati = soldati;
+	this.isCitta = true;
 
-	if (owner == "Player")
-		this.col = color(150, 0, 24);
-	else
-		this.col = color(0, 123, 167);
+	this.displayC = function () {
 
-	this.display = function () {
-		stroke(255);
-		fill(this.col);
-		ellipse(this.x, this.y, 30);
+		if (this.owner == "Player") {
+			this.col = "rgba(255, 0, 0, 0.3)";
+		} else {
+			this.col = "rgba(0, 0, 255, 0.3)";
+		}
+
+		c = document.getElementById("MAPPA");
+		ctx = c.getContext("2d");
+		ctx.beginPath();
+		ctx.arc(this.x, this.y, 18, 0, Math.PI * 2, true);
+		ctx.fillStyle = this.col;
+		ctx.fill();
+		ctx.lineWidth = 1;
+		ctx.strokeStyle = "white";
+		ctx.stroke();
 	}
 
 	this.hover = function () {
-		var dH = dist(mouseX, mouseY, this.x, this.y);
+		var dH = dist(mousePos.x, mousePos.y, this.x, this.y);
 		if (dH < 15) {
-			cityHover.push(this.nome);
+			Hover.push(this);
 		}
 	}
 
 	this.tastoSinistro = function () {
-		var dS = dist(mouseX, mouseY, this.x, this.y);
+		var dS = dist(mousePos.x, mousePos.y, this.x, this.y);
 		if (dS < 15) {
+
 		}
 	}
 
 	this.tastoDestro = function (cittaDestro) {
-		var dD = dist(mouseX, mouseY, this.x, this.y);
+		var dD = dist(mousePos.x, mousePos.y, this.x, this.y);
 		if (dD < 15) {
 
 			document.getElementById("NAV1").innerHTML = this.nome.toUpperCase();
+
+			document.getElementById("NAV2").innerHTML = "Esercito non Disponibile";
+			document.getElementById("NAV2").onclick = "";
 
 			if (cittaDestro.owner == "Player") {
 				document.getElementById("mySidenav").style.backgroundColor = "#AF0000";
@@ -57,7 +71,7 @@ function City(nome, x, y, owner, uomini) {
 							closeNav();
 
 							mscConfirm({
-								title: cittaDestro.nome.toUpperCase(),
+								title: cittaDestro.nome,
 								subtitle: "CREARE ESERCITO?",
 								okText: "SI",
 								cancelText: "NO",
@@ -89,7 +103,25 @@ function City(nome, x, y, owner, uomini) {
 				document.getElementById("NAV3").innerHTML = "Crea Flotta";
 				document.getElementById("NAV3").onclick = "";
 				document.getElementById("NAV4").innerHTML = "Gestisci Città";
-				document.getElementById("NAV4").onclick = function () { document.getElementById("mySidenav2").style.width = "20%"; };
+				document.getElementById("NAV4").onclick = function () {
+
+					document.getElementById("selTitle").innerHTML = "COSTRUZIONI";
+
+					document.getElementById("sel0").innerHTML = "";
+					document.getElementById("sel0").onclick = "";
+					document.getElementById("sel1").innerHTML = "";
+					document.getElementById("sel1").onclick = "";
+					document.getElementById("sel2").innerHTML = "";
+					document.getElementById("sel2").onclick = "";
+					document.getElementById("sel3").innerHTML = "";
+					document.getElementById("sel3").onclick = "";
+					document.getElementById("sel4").innerHTML = "";
+					document.getElementById("sel4").onclick = "";
+					document.getElementById("sel5").innerHTML = "";
+					document.getElementById("sel5").onclick = "";
+
+					document.getElementById("mySidenav2").style.width = "15%";
+				};
 
 			} else {
 
@@ -102,7 +134,7 @@ function City(nome, x, y, owner, uomini) {
 				document.getElementById("NAV4").onclick = "";
 			}
 
-			document.getElementById("mySidenav").style.width = "20%";
+			document.getElementById("mySidenav").style.width = "15%";
 		}
 	}
 }

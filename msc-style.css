@@ -1,32 +1,14 @@
-@-webkit-keyframes scale-fade{
-    0%{opacity:0;-webkit-transform:scale(.8) rotateX(-40deg);transform:scale(.8) rotateX(-40deg)}
-    50%{opacity:1}70%{-webkit-transform:scale(1.05) rotateX(0);transform:scale(1.05) rotateX(0)}
-    100%{-webkit-transform:scale(1) rotateX(0);transform:scale(1) rotateX(0)}
-}
-@keyframes scale-fade{
-    0%{opacity:0;-webkit-transform:scale(.8) rotateX(-40deg);transform:scale(.8) rotateX(-40deg)}
-    50%{opacity:1}70%{-webkit-transform:scale(1.05) rotateX(0);transform:scale(1.05) rotateX(0)}
-    100%{-webkit-transform:scale(1) rotateX(0);transform:scale(1) rotateX(0)}
-}
-
-.msc-confirm--animate {
-    -webkit-transform-origin: bottom center;
-    -ms-transform-origin: bottom center;
-    transform-origin: bottom center;
-    -webkit-animation: scale-fade 300ms forwards cubic-bezier(.8, .02, .45, -1.09);
-    animation: scale-fade 300ms forwards cubic-bezier(.8, .02, .45, .91);
-}
-
 .msc-confirm {
     display: none;
     color: #FFF;
-    text-shadow: 3px 1px 5px #000;
+    text-shadow: 0.2vw 0.1vw 0.2vw #000;
     -webkit-font-smoothing: antialiased;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+        user-select: none;
 }
 .msc-overlay {
     position: fixed;
@@ -37,6 +19,7 @@
     left: 0;
     /*background-color: #fff;*/
     z-index: 20;
+        user-select: none;
 }
 
 .msc-confirm button {
@@ -44,25 +27,29 @@
     border: none;
     cursor: pointer;
     transition: all 0.2s ease-in;
+        user-select: none;
 }
 
 .msc-confirm button:focus {
     outline: none;
+        user-select: none;
 }
 
 .msc-close {
     position: absolute;
     top: 0;
     right: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    font-size: 1.2em;
+    width: 1.5vw;
+    height: 1.5vw;
+    border-radius: 1.5vw;
+    font-size: 1.5vw;
     text-align: center;
     vertical-align: middle;
+        user-select: none;
 }
 .msc-close:hover {
     background: #eee;
+        user-select: none;
 }
 
 .msc-content {
@@ -70,77 +57,82 @@
     z-index: 21;
     background: #AF0000;
     opacity: 1.0;
-    max-width: 480px;
+    max-width: 25%;
     margin: 10% auto 10% auto;
-    padding: 40px;
+    padding: 1.5vw;
     text-align: center;
     border-style: outset;
-}
-
-@media (max-width: 600px) {
-  .msc-content {
-    padding: 10px 0;
-  }
+        user-select: none;
 }
 
 .msc-title {
-    font-size: 2em;
-    margin: 0 0 0.1em 0;
+    font-size: 1.5vw;
+    margin: 0 0 0.1vw 0;
+        user-select: none;
 }
 .msc-body {
-    font-size: 1.2em;
-    margin-bottom: 1em;
+    font-size: 1.5vw;
+    margin-bottom: 1vw;
     color: #FFF;
-    text-shadow: 3px 1px 5px #000;
+    text-shadow: 0.2vw 0.1vw 0.2vw #000;
+        user-select: none;
 }
 .msc-body p {
-    margin: 0 0 10px 0;
+    margin: 0 0 1vw 0;
+        user-select: none;
 }
 
 .msc-input {
     box-sizing: border-box;
     width: 100%;
-    height: 38px;
-    font-size: 14px;
+    height: 2vw;
+    font-size: 1.5vw;
     text-align: center;
-    letter-spacing: 0.02em;
-    font-weight: 400;
+    letter-spacing: 0.02vw;
+    font-weight: 2vw;
     font-style: normal;
     font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
     border: none;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
-    padding: 0 15px;
+    border-bottom: 0.1vw solid rgba(0,0,0,0.15);
+    padding: 0 1vw;
+        user-select: none;
 }
 
 .msc-input:focus {
     outline: none;
     border-color: #0F985A;
+        user-select: none;
 }
 
-
 .msc-action button {
-    border: 1px solid #000;
-    padding: 10px 20px;
-    border-radius: 25px;
-    min-width: 80px;
+    border: 0.1vw solid #FFF;
+    color: #FFF;
+    padding: 0.5vw 2vw;
+    border-radius: 1vw;
     background: #AF0000;
+        user-select: none;
 }
 .msc-action button:focus {
     outline: none;
+        user-select: none;
 }
 .msc-ok {
-    margin-right: 10px;
+    margin-right: 1vw;
+        user-select: none;
 }
 button.msc-ok:hover, button.msc-ok:focus {
-    border: 1px solid #f9d800;
+    border: 0.1vw solid #f9d800;
     color: #f9d800;
+        user-select: none;
 }
 button.msc-cancel:hover, button.msc-cancel:focus {
-    border: 1px solid #000;
-    color: #000;
+    border: 0.1vw solid #FFF;
+    color: #FFF;
+        user-select: none;
 }
 
 .msc-sub{
     white-space: pre-line;
+        user-select: none;
 }
 
