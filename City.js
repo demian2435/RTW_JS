@@ -1,10 +1,10 @@
 var elencoCity = [
-	["Roma", 917, 926, "Player", 5000, 3000],
-	["Neapolis", 953, 960, "Enemy", 2000, 2000],
-	["Brundisium", 1086, 992, "Enemy", 1000, 1500],
-	["Cosentia", 1021, 1058, "Enemy", 1250, 1500],
-	["Arminium", 941, 816, "Enemy", 2000, 2000],
-	["Velathri", 867, 842, "Enemy", 1500, 3000]
+	["Roma", 917, 926, "Player", 15000, 4000],
+	["Neapolis", 953, 960, "Enemy", 8000, 1700],
+	["Brundisium", 1086, 992, "Enemy", 5000, 1000],
+	["Cosentia", 1021, 1058, "Enemy", 5250, 1800],
+	["Arminium", 941, 816, "Enemy", 6000, 1500],
+	["Velathri", 867, 842, "Enemy", 7500, 2000]
 ];
 
 function City(nome, x, y, owner, uomini, soldati) {
@@ -103,9 +103,9 @@ function City(nome, x, y, owner, uomini, soldati) {
 				document.getElementById("NAV3").innerHTML = "Crea Flotta";
 				document.getElementById("NAV3").onclick = "";
 				document.getElementById("NAV4").innerHTML = "Gestisci Città";
-				document.getElementById("NAV4").onclick = function () {
+				document.getElementById("NAV4").onclick =   function () {
 
-					document.getElementById("selTitle").innerHTML = "COSTRUZIONI";
+					document.getElementById("selTitle").innerHTML = "INFO";
 
 					document.getElementById("sel0").innerHTML = "";
 					document.getElementById("sel0").onclick = "";
@@ -130,8 +130,26 @@ function City(nome, x, y, owner, uomini, soldati) {
 				document.getElementById("NAV2").onclick = "";
 				document.getElementById("NAV3").innerHTML = "Invia dei Mercanti";
 				document.getElementById("NAV3").onclick = "";
-				document.getElementById("NAV4").innerHTML = "";
-				document.getElementById("NAV4").onclick = "";
+				document.getElementById("NAV4").innerHTML = "Informazioni";
+				document.getElementById("NAV4").onclick =  function () {
+
+					document.getElementById("selTitle").innerHTML = "INFO";
+
+					document.getElementById("sel0").innerHTML = "IN ARMI";
+					document.getElementById("sel0").onclick = "";
+					document.getElementById("sel1").innerHTML = cittaDestro.soldati;
+					document.getElementById("sel1").onclick = "";
+					document.getElementById("sel2").innerHTML = "POPOLAZIONE";
+					document.getElementById("sel2").onclick = "";
+					document.getElementById("sel3").innerHTML = cittaDestro.uomini;
+					document.getElementById("sel3").onclick = "";
+					document.getElementById("sel4").innerHTML = "TOTALE";
+					document.getElementById("sel4").onclick = "";
+					document.getElementById("sel5").innerHTML = cittaDestro.soldati + cittaDestro.uomini;
+					document.getElementById("sel5").onclick = "";
+
+					document.getElementById("mySidenav2").style.width = "15%";
+				};
 			}
 
 			document.getElementById("mySidenav").style.width = "15%";

@@ -5,9 +5,9 @@ var tassoConversione = 100;
 var city = [];
 var legion = [];
 
-var UOMINI = 4000;
+var UOMINI = 5000;
 var CIBO = 250;
-var DENARO = 10000;
+var DENARO = 7000;
 var ANNO = 753;
 
 var TASSE = 0.01;
@@ -71,8 +71,8 @@ function setup() {
 		};
 	}
 
-	legion.push(new Legion(statLegione[0][0], statLegione[0][1], statLegione[0][2], statLegione[0][3], statLegione[0][4], statLegione[0][6]));
-	statLegione[0][5] = true;
+	//legion.push(new Legion(statLegione[0][0], statLegione[0][1], statLegione[0][2], statLegione[0][3], statLegione[0][4], statLegione[0][6]));
+	//statLegione[0][5] = true;
 }
 
 function mousePressed() {
@@ -447,10 +447,11 @@ function BATTAGLIAcanvas(PLAYER, ENEMY) {
 	EsercitoPlayer.push(PLAYER);
 
 	for (var i = 0; i < (PLAYER.soldati * UnitaFPS); i++) {
-		unitaBattaglia.push(new Unita(random(1900, 1400), random(920, 620), "Player", true));
+		
+		unitaBattaglia.push(new Unita(random(1900, 1400), random(900, 700), "Player", true));
 	}
 
 	for (var i = 0; i < (ENEMY.soldati * UnitaFPS); i++) {
-		unitaBattaglia.push(new Unita(random(20, 520), random(920, 620), "Enemy", true))
+		unitaBattaglia.push(new Unita(random(20, 520), random(900, 700), "Enemy", true))
 	}
 }

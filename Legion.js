@@ -1,6 +1,6 @@
 var statLegione = [
 	["Roma", "Esercito Popolare di Roma", 949, 889, "Player", false, 3000],
-	["Velathri", "I Difensori di Velathri", 896, 839, "Enemy", false, 10000]
+	["Velathri", "I Difensori di Velathri", 896, 839, "Enemy", false, 2500]
 ];
 
 function Legion(citta, nome, x, y, owner, soldati) {
@@ -126,7 +126,7 @@ function Legion(citta, nome, x, y, owner, soldati) {
 
 					document.getElementById("selTitle").innerHTML = "INFO";
 
-					document.getElementById("sel0").innerHTML = "UOMINI TOT";
+					document.getElementById("sel0").innerHTML = "SOLDATI";
 					document.getElementById("sel0").onclick = "";
 					document.getElementById("sel1").innerHTML = legioneDestro.soldati;
 					document.getElementById("sel1").onclick = "";
@@ -151,7 +151,26 @@ function Legion(citta, nome, x, y, owner, soldati) {
 				document.getElementById("NAV2").onclick = "";
 				document.getElementById("NAV3").innerHTML = "Corrompi Esercito";
 				document.getElementById("NAV3").onclick = "";
-				document.getElementById("NAV4").innerHTML = "";
+				document.getElementById("NAV4").innerHTML = "Informazioni";
+				document.getElementById("NAV4").onclick =  function () {
+
+					document.getElementById("selTitle").innerHTML = "INFO";
+
+					document.getElementById("sel0").innerHTML = "SOLDATI";
+					document.getElementById("sel0").onclick = "";
+					document.getElementById("sel1").innerHTML = legioneDestro.soldati;
+					document.getElementById("sel1").onclick = "";
+					document.getElementById("sel2").innerHTML = "";
+					document.getElementById("sel2").onclick = "";
+					document.getElementById("sel3").innerHTML = "";
+					document.getElementById("sel3").onclick = "";
+					document.getElementById("sel4").innerHTML = "";
+					document.getElementById("sel4").onclick = "";
+					document.getElementById("sel5").innerHTML = "";
+					document.getElementById("sel5").onclick = "";
+
+					document.getElementById("mySidenav2").style.width = "15%";
+				};
 				document.getElementById("mySidenav").style.width = "15%";
 			}
 		}

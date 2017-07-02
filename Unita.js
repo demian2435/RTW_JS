@@ -73,28 +73,52 @@ function Unita(x, y, owner, vivo) {
                         return;
                     }
                 }
+            }
 
-                if (unitaBattaglia[i].vivo == true && unitaBattaglia[i].owner != this.owner) {
+            // 960 meta
 
-                    if (this.owner == "Player" && this.x > 960) {
-                        this.x -= speed;
-                        return;
-                    } else if (this.owner == "Player") {
-                        this.x += random(-unitSpeed, unitSpeed);
-                        this.y += random(-unitSpeed, unitSpeed);
-                        return;
-                    }
 
-                    if (this.owner == "Enemy" && this.x < 960) {
-                        this.x += speed;
-                        return;
-                    } else if (this.owner == "Enemy") {
-                        this.x += random(-unitSpeed, unitSpeed);
-                        this.y += random(-unitSpeed, unitSpeed);
-                        return;
-                    }
+
+            if (this.owner == "Player" && this.vivo == true) {
+
+                if (this.y >= 900) {
+                    this.y -= random(unitSpeed);
+                } else if (this.y <= 700) {
+                    this.y += random(unitSpeed);
+                } else {
+                    this.y += random(-unitSpeed, unitSpeed);
                 }
-            } return;
-        } else { return }
+
+                if (this.x > 1010) {
+                    this.x -= random(unitSpeed);
+                } else {
+                    this.x += random(-unitSpeed, unitSpeed);
+                }
+                if (this.x < 910) {
+                    this.x += random(unitSpeed);
+                }
+            }
+
+            if (this.owner == "Enemy" && this.vivo == true) {
+
+                if (this.y >= 900) {
+                    this.y -= random(unitSpeed);
+                } else if (this.y <= 700) {
+                    this.y += random(unitSpeed);
+                } else {
+                    this.y += random(-unitSpeed, unitSpeed);
+                }
+
+                if (this.x > 1010) {
+                    this.x -= random(unitSpeed);
+                } else {
+                    this.x += random(-unitSpeed, unitSpeed);
+                }
+                if (this.x < 910) {
+                    this.x += random(unitSpeed);
+                }
+            }
+
+        }
     }
 }
